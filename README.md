@@ -23,10 +23,32 @@ email|runelite_profile|hydra_profile|proxy:port:username:password
 email|runelite_profile|hydra_profile|proxy:port:username:password
 ```
 
+## How It Works
+
+We start by loading all account from the provided path in the config.
+We then launch one client for each account with the provided profiles, account, and proxy.
+When launching each game client, an account specific parameter is passed to the process.
+We then check that each account is still running by looking for a living process with the respective account specific parameter.
+If none is found, we relaunch that game client with the profile, account, and proxy from the accounts.txt file.
+
 ## Configs
 
 ```
 HYDRA_LAUNCHER_PATH = "../hydra-launcher-1.0.3.jar"  # Launcher path
 ACCOUNTS_PATH = "./accounts.txt"  # Account text file path
 LAUNCH_DELAY = 15  # Delay between launching accounts
+```
+
+## How To Start
+
+Run the script
+
+Aboslute pathing
+```
+python C:\path\to\your\launcher.py
+```
+
+Relative pathing
+```
+python .\launcher.py
 ```
